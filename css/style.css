@@ -487,7 +487,11 @@ h6 { font-size: 16px; }
 }
 .kavin_mobile_menu .social ul li a{
 	text-decoration: none;
-	color: #333;
+	color: #5C5990;
+}
+.kavin_mobile_menu .social ul li a:hover{
+	text-decoration: none;
+	color: #8d86e0;
 }
 .kavin_mobile_menu .copyright{
 	width: 100%;
