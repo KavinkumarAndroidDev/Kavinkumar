@@ -119,7 +119,6 @@ function kavin_trigger_menu(){
 	mobileMenuList.on('click',function(){
 		jQuery('.kavin_topbar .trigger .hamburger').removeClass('is-active');
 		mobileMenu.removeClass('opened');
-		return false;
 	});
 }
 
