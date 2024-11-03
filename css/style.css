@@ -969,40 +969,40 @@ h6 { font-size: 16px; }
 	border: 1px solid rgba(109, 69, 189, 0.1);
 	padding: 4px 15px;
 }
-.kavin_testimonials{
+.kavin_quotes{
 	width: 100%;
 	border: 1px solid rgba(109, 69, 189, 0.1);
 	padding: 57px 50px 50px 50px;
 	position: relative;
 	margin-top: 20px;
 }
-.kavin_testimonials .testimonials_inner{
+.kavin_quotes .quotes_inner{
 	width: 100%;
 }
-.kavin_testimonials .wrapper{
+.kavin_quotes .wrapper{
 	width: 100%;
 }
-.kavin_testimonials .quote{
+.kavin_quotes .quote{
 	width: 100%;
 	margin-bottom: 15px;
 }
-.kavin_testimonials .quote .svg{
+.kavin_quotes .quote .svg{
 	width: 50px;
 	height: 50px;
 	color: #8D86E0;
 }
-.kavin_testimonials .item{
+.kavin_quotes .item{
 	width: 100%;
 }
-.kavin_testimonials .text{
+.kavin_quotes .text{
 	width: 100%;
 	margin-bottom: 27px;
 }
-.kavin_testimonials .details{
+.kavin_quotes .details{
 	display: flex;
 	align-items: center;
 }
-.kavin_testimonials .avatar{
+.kavin_quotes .avatar{
 	position: relative;
 	width: 60px;
 	height: 60px;
@@ -1010,7 +1010,7 @@ h6 { font-size: 16px; }
 	top: 50%;
 	overflow: hidden;
 }
-.kavin_testimonials .avatar .image{
+.kavin_quotes .avatar .image{
 	position: absolute;
 	top: -4px;
 	bottom: -4px;
@@ -1030,32 +1030,32 @@ h6 { font-size: 16px; }
 	
 	transform: scale(1.2) translateZ(0);
 }
-.kavin_testimonials .owl-carousel .owl-item.active .avatar .image{
+.kavin_quotes .owl-carousel .owl-item.active .avatar .image{
 	opacity: 1;
 	transition: all 1s .3s ease;
 	transform: scale(1) translateZ(0);
 }
-.kavin_testimonials .info{
+.kavin_quotes .info{
 	padding-left: 15px;
 }
-.kavin_testimonials .info .author{
+.kavin_quotes .info .author{
 	font-size: 15px;
 	margin-bottom: 7px;
 }
-.kavin_testimonials .info .job{
+.kavin_quotes .info .job{
 	font-weight: 400;
 	font-size: 14px;
 	color: #8d86e0;
 }
-.kavin_testimonials .info h3{
+.kavin_quotes .info h3{
 	overflow: hidden;
 	margin: 0px;
 	padding: 0px;
 	line-height: 1;
 	position: relative;
 }
-.kavin_testimonials .info .author span,
-.kavin_testimonials .info .job span{
+.kavin_quotes .info .author span,
+.kavin_quotes .info .job span{
 	position: relative;
 	display: block;
 	padding: 2px 0px;
@@ -1068,11 +1068,11 @@ h6 { font-size: 16px; }
 	        transition: all 1s ease;
 }
 
-.kavin_testimonials .owl-carousel .owl-item.active .info .author span{
+.kavin_quotes .owl-carousel .owl-item.active .info .author span{
 	transform: translateY(0px);
 	transition-delay: 0.3s;
 }
-.kavin_testimonials .owl-carousel .owl-item.active .info .job span{
+.kavin_quotes .owl-carousel .owl-item.active .info .job span{
 	transform: translateY(0px);
 	transition-delay: 0.6s;
 }
@@ -2023,7 +2023,7 @@ body.intro{
 	.kavin_about .experience .right{padding-left: 0px;width: 100%;}
 	.kavin_about .experience:before{display: none;}
 	.kavin_about .experience .wrapper{flex-direction: column;}
-	.kavin_testimonials{padding-left: 25px;padding-right: 25px;}
+	.kavin_quotes{padding-left: 25px;padding-right: 25px;}
 	.kavin_services .services_list{padding-left: 25px;padding-right: 25px;}
 	.kavin_portfolio .portfolio_list{padding-left: 25px;padding-right: 25px;}
 	.kavin_contact .contact_inner{padding-left: 25px;padding-right: 25px;}
