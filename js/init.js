@@ -436,7 +436,7 @@ function kavin_owl_carousel(){
 
 	"use strict";
 
-	var carousel			= jQuery('.kavin_testimonials .owl-carousel');
+	var carousel			= jQuery('.kavin_quotes .owl-carousel');
 	carousel.owlCarousel({
 		loop: true,
 		animateOut: 'fadeOut',
