@@ -1433,6 +1433,31 @@ h6 { font-size: 16px; }
     left: 0;
     right: auto
 }
+.line_effect {
+	text-decoration: none;
+	color: #fff; /* or LinkedIn blue: #0a66c2 */
+	display: inline-block;
+	position: relative;
+}
+
+.line_effect:after {
+	content: '';
+	width: 0;
+	height: 1px;
+	position: absolute;
+	left: auto;
+	right: 0;
+	bottom: 3px;
+	transition: width .6s cubic-bezier(.25, .8, .25, 1) 0s;
+	background: currentColor;
+}
+
+.line_effect:hover:after {
+	width: 100%;
+	left: 0;
+	right: auto;
+}
+
 .text_hover_effect{
     position: relative;
     display: inline;
