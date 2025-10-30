@@ -1997,7 +1997,6 @@ body.intro{
 	margin-bottom: 15px;
 }
 .kavin_intro .features_wrapper ul li .svg{
-	width: 40px;
 	height: 40px;
 	margin-bottom: 25px;
 }
@@ -2036,7 +2035,6 @@ body.intro{
 	.kavin_home .animateText span{font-size: 16px;}
 	.kavin_about .biography .details ul{margin: 0px;}
 	.kavin_about .biography .details ul li{width: 100%;padding-left: 0px;}
-	.kavin_about .biography{padding-left: 25px;padding-right: 25px;}
 	.kavin_about .biography .details ul li span:first-child{min-width: auto;padding-right: 5px;}
 	.kavin_about .skillbox{padding-left: 25px;padding-right: 25px;}
 	.kavin_about .skillbox .wrapper{flex-direction: column;}
@@ -2073,4 +2071,122 @@ body.intro{
 	.kavin_intro .demos ul li{width: 100%;padding-left: 0px;}
 	.kavin_intro .features_wrapper ul{margin: 0px;}
 	.kavin_intro .features_wrapper ul li{width: 100%;padding-left: 0px;}
+}
+
+/* Floating App Dock */
+.floating-dock {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 30px;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    transform: translateX(calc(100% - 100px)); /* Initially show only a part of the dock */
+}
+
+.floating-dock:hover {
+    transform: translateX(0); /* Fully reveal on hover */
+    padding: 10px 20px;
+}
+
+.floating-dock .dock-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+}
+
+.floating-dock .app-icons {
+    display: flex;
+    gap: 10px;
+    margin-right: 15px;
+}
+
+.floating-dock .app-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.2s ease;
+}
+
+.floating-dock:hover .app-icon {
+    transform: translateY(-5px);
+}
+
+.floating-dock .dock-text {
+    font-size: 16px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    max-width: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease, max-width 0.3s ease;
+}
+
+.floating-dock:hover .dock-text {
+    opacity: 1;
+    max-width: 200px; /* Adjust as needed */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .floating-dock {
+        bottom: 15px;
+        right: 15px;
+        transform: translateX(calc(100% - 80px));
+        padding: 8px 12px;
+    }
+
+    .floating-dock:hover {
+        transform: translateX(0);
+        padding: 8px 15px;
+    }
+
+    .floating-dock .app-icons {
+        gap: 8px;
+        margin-right: 10px;
+    }
+
+    .floating-dock .app-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    .floating-dock .dock-text {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .floating-dock {
+        bottom: 10px;
+        right: 10px;
+        transform: translateX(calc(100% - 60px));
+        padding: 6px 10px;
+    }
+
+    .floating-dock:hover {
+        transform: translateX(0);
+        padding: 6px 12px;
+    }
+
+    .floating-dock .app-icons {
+        gap: 5px;
+        margin-right: 8px;
+    }
+
+    .floating-dock .app-icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .floating-dock .dock-text {
+        font-size: 12px;
+    }
 }
