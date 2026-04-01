@@ -12,11 +12,12 @@ import { projects, Project, ProjectCategory } from "@/data/content";
 import styles from "./Portfolio.module.css";
 
 // ─── FILTER OPTIONS ───────────────────────────────────────────
+// We derive these automatically from your projects in content.ts.
+// This way, if you add a new category (like "Java"), the tab appears instantly.
+const CATEGORIES = Array.from(new Set(projects.map((p) => p.category)));
 const FILTERS: { label: string; value: "All" | ProjectCategory }[] = [
-  { label: "All",     value: "All" },
-  { label: "App",     value: "App" },
-  { label: "Website", value: "Website" },
-  { label: "Cloud",   value: "Cloud" },
+  { label: "All", value: "All" },
+  ...CATEGORIES.map((cat) => ({ label: cat, value: cat })),
 ];
 
 // ─── PROJECT MODAL ────────────────────────────────────────────

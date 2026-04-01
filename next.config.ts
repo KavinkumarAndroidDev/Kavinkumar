@@ -8,6 +8,8 @@ const nextConfig: NextConfig = {
     ],
     // Local images from /public/img are always allowed by default
   },
+  // Fix for "Blocked cross-origin request" when accessing via network IP
+  allowedDevOrigins: ["10.132.119.228"],
 };
 
 export default nextConfig;

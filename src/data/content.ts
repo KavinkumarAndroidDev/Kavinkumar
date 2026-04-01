@@ -160,7 +160,7 @@ export const services = [
 ];
 
 // ─── PORTFOLIO PROJECTS ───────────────────────────────────────
-export type ProjectCategory = "App" | "Website" | "Cloud";
+export type ProjectCategory = "App" | "Website" | "Cloud" | "Java";
 
 export interface Project {
   title: string;
@@ -401,6 +401,78 @@ export const projects: Project[] = [
       { label: "Live App", href: "https://partyrock.aws/u/kavinkumar-r/JXGTaESOm/Daily-Task-Scheduler-AI-Powered", icon: "link" },
     ],
   },
+  {
+    title: "SyncEvent",
+    category: "Website",
+    thumbnail: "/img/project/syncevent.png",
+    description: `SyncEvent is a frontend-focused Event Management System
+built using Vanilla JavaScript and Bootstrap. It allows
+users to browse events, register, and manage
+participation through a responsive interface.
+
+Key features:
+
+This project focuses on building a scalable frontend without
+frameworks, emphasizing modular architecture, state
+handling, and separation of concerns.`,
+    features: [
+      "Role-based access (Admin, Organizer, Attendee)",
+      "Event browsing, registration, and ticket flow",
+      "Dynamic module loading based on routes",
+      "Centralized state management for consistent UI updates",
+      "Form validation with real-time user feedback"
+    ],
+    technologies: [
+      "HTML",
+      "CSS (SCSS)",
+      "JavaScript",
+      "Bootstrap",
+      "JSON Server"
+    ],
+    status: "Completed",
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/KavinkumarAndroidDev/event-management-system-web.git",
+        icon: "github"
+      }
+    ]
+  },
+  {
+    title: "Event Management System (Console)",
+    category: "Java",
+    thumbnail: "/img/project/syncevent-console.png",
+    description: `Console-based Event Management System built using Core
+Java and JDBC. The application supports event creation,
+user registration, and ticket management through a
+command-line interface.
+
+Key features:
+
+This project focuses on backend fundamentals, including
+database interaction, business logic structuring, and clean
+separation of concerns without using frameworks.`,
+    features: [
+      "Role-based workflows (Admin, Organizer, User)",
+      "Event creation, registration, and ticket handling",
+      "Layered architecture (Action → Service → DAO)",
+      "Direct database interaction using JDBC",
+      "Exception handling and input validation"
+    ],
+    technologies: [
+      "Java",
+      "JDBC",
+      "MySQL"
+    ],
+    status: "Completed",
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/KavinkumarAndroidDev/event-management-system-jdbc-console.git",
+        icon: "github"
+      }
+    ]
+  }
 ];
 
 // ─── BLOGS ────────────────────────────────────────────────────
