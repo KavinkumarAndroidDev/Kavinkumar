@@ -1,0 +1,23 @@
+﻿node.exe : npm error code ENOTEMPTY
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" 
+"C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpeci 
+   fied: (npm error code ENOTEMPTY:St  
+  ring) [], RemoteException
+    + FullyQualifiedErrorId : NativeCo 
+   mmandError
+ 
+npm error syscall rmdir
+npm error path D:\portfolio-kk\Kavinkum
+ar\node_modules\next\dist\esm\client
+npm error errno -4051
+npm error ENOTEMPTY: directory not 
+empty, rmdir 'D:\portfolio-kk\Kavinkuma
+r\node_modules\next\dist\esm\client'
+npm error A complete log of this run 
+can be found in: C:\Users\kavin\AppData
+\Local\npm-cache\_logs\2026-04-01T15_48
+_10_103Z-debug-0.log

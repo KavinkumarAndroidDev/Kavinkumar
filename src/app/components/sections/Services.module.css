@@ -1,0 +1,92 @@
+/* ============================================================
+   Services.module.css — Styles for the Services section
+   ============================================================
+   This section is intentionally hidden from the public UI.
+   See Services.tsx for the visibility toggle.
+   ============================================================ */
+
+.services {
+  padding: var(--space-3xl) 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-lg);
+}
+
+.card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-accent-primary), var(--color-accent-secondary));
+  transform: scaleX(0);
+  transition: transform var(--transition-base);
+  transform-origin: left;
+}
+
+.card:hover {
+  border-color: var(--color-border);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-accent);
+}
+
+.card:hover::before { transform: scaleX(1); }
+
+.cardIcon {
+  font-size: 2rem;
+  margin-bottom: var(--space-md);
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-md);
+}
+
+.cardList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cardListItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.cardListItem::before {
+  content: '▸';
+  color: var(--color-accent-primary);
+  font-size: 0.7rem;
+}
+
+.comingSoon {
+  margin-top: var(--space-2xl);
+  text-align: center;
+  padding: var(--space-xl);
+  background: rgba(124,106,247,0.05);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.comingSoonText {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}

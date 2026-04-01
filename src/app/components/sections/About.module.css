@@ -1,0 +1,320 @@
+/* ============================================================
+   About.module.css — Styles for the About section
+   ============================================================ */
+
+.about {
+  padding: var(--space-3xl) 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2xl);
+  margin-bottom: var(--space-2xl);
+}
+
+/* ─── Bio Card ─── */
+.bioCard {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+}
+
+.bioText {
+  color: var(--color-text-secondary);
+  font-size: 0.925rem;
+  line-height: 1.85;
+  margin-bottom: var(--space-md);
+}
+
+.bioText:last-of-type { margin-bottom: var(--space-xl); }
+
+/* ─── Details list ─── */
+.detailsList {
+  display: grid;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+}
+
+.detailItem {
+  display: flex;
+  gap: var(--space-md);
+  font-size: 0.875rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.detailItem:last-child { border: none; }
+
+.detailLabel {
+  color: var(--color-text-muted);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  min-width: 90px;
+  padding-top: 2px;
+}
+
+.detailValue {
+  color: var(--color-text-primary);
+  font-weight: 500;
+}
+
+.detailValue a {
+  color: var(--color-accent-primary);
+  transition: color var(--transition-base);
+}
+
+.detailValue a:hover { color: var(--color-accent-secondary); }
+
+/* ─── Skills Card ─── */
+.skillsCard {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+}
+
+.skillGroup {
+  margin-bottom: var(--space-xl);
+}
+
+.skillGroup:last-child { margin-bottom: 0; }
+
+.skillGroupTitle {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-md);
+}
+
+.skillItem {
+  margin-bottom: var(--space-md);
+}
+
+.skillItemHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.skillLabel {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.skillValue {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-accent-primary);
+}
+
+/* ─── Timeline / Experience Section ─── */
+.timelineSection {
+  margin-bottom: var(--space-2xl);
+}
+
+.timelineGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+}
+
+.timelineCard {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+}
+
+.timelineCardTitle {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent-primary);
+  margin-bottom: var(--space-lg);
+}
+
+.timelineItemRole {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 2px;
+}
+
+.timelineItemOrg {
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 4px;
+}
+
+.timelineItemPeriod {
+  font-size: 0.75rem;
+  color: var(--color-accent-primary);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+/* ─── Leadership / Certs ─── */
+.accoladeGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-2xl);
+}
+
+.accoladCard {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+}
+
+.accoladeCardTitle {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent-primary);
+  margin-bottom: var(--space-lg);
+}
+
+.accoladeItem {
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.accoladeItem:last-child { border: none; }
+
+.accoladeTitle {
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--color-text-primary);
+  margin-bottom: 2px;
+}
+
+.accoladeOrg {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
+.accoladePeriod {
+  font-size: 0.75rem;
+  color: var(--color-accent-primary);
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* ─── Publication Card ─── */
+.pubCard {
+  background: linear-gradient(135deg, rgba(124,106,247,0.08), rgba(94,156,240,0.08));
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.pubTitle {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1.4;
+}
+
+.pubPublisher {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ─── Testimonials Carousel ─── */
+.testimonialsSection {
+  margin-bottom: var(--space-2xl);
+}
+
+.testimonialGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg);
+}
+
+.testimonialCard {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  transition: border-color var(--transition-base), transform var(--transition-base);
+}
+
+.testimonialCard:hover {
+  border-color: var(--color-border);
+  transform: translateY(-3px);
+}
+
+.quoteIcon {
+  font-size: 2rem;
+  color: var(--color-accent-primary);
+  line-height: 1;
+  opacity: 0.6;
+}
+
+.testimonialText {
+  font-size: 0.875rem;
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  flex: 1;
+}
+
+.testimonialAuthor {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.authorAvatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--color-border);
+}
+
+.authorName {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.authorRole {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+  .grid,
+  .timelineGrid,
+  .accoladeGrid {
+    grid-template-columns: 1fr;
+  }
+}
