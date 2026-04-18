@@ -1,15 +1,7 @@
-// ============================================================
-// page.tsx — The main portfolio page assembling all sections
-// ============================================================
-// This is the single-page entry point. Each section is a separate
-// React component driven by content.ts data.
-//
-// TO ADD/REMOVE SECTIONS: simply import and place the component here.
-// TO ENABLE SERVICES: flip SERVICES_VISIBLE in Services.tsx to `true`.
-// ============================================================
+"use client";
 
-import React from "react";
-import Sidebar from "./components/layout/Sidebar";
+import React, { useEffect, useState } from "react";
+import Navbar from "./components/layout/Navbar";
 import Hero from "./components/sections/Hero";
 import About from "./components/sections/About";
 import Services from "./components/sections/Services";
@@ -20,44 +12,65 @@ import FloatingDock from "./components/FloatingDock";
 import styles from "./page.module.css";
 
 export default function Home() {
-  return (
-    <>
-      {/* ── Ambient background orbs ── */}
-      <div className="orb orb-1" aria-hidden />
-      <div className="orb orb-2" aria-hidden />
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
-      {/* ── Sidebar Navigation ── */}
-      <Sidebar />
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePos({ x: e.clientX, y: e.clientY });
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  return (
+    <div style={{ "--mouse-x": `${mousePos.x}px`, "--mouse-y": `${mousePos.y}px` } as React.CSSProperties}>
+      {/* ── Immersive Background ── */}
+      <div className="noise-bg" />
+      <div className="spotlight" />
+
+      {/* ── Modern Navigation ── */}
+      <Navbar />
 
       {/* ── Main Content Area ── */}
       <main className={styles.main}>
-
         {/* Landing hero */}
-        <Hero />
+        <section id="home">
+          <Hero />
+        </section>
 
         {/* About: bio, skills, timeline, leadership, certs, testimonials */}
-        <About />
+        <section id="about">
+          <About />
+        </section>
 
-        {/* Services: hidden until SERVICES_VISIBLE = true in Services.tsx */}
+        {/* Services */}
         <Services />
 
         {/* Portfolio: filterable project grid */}
-        <Portfolio />
+        <section id="portfolio">
+          <Portfolio />
+        </section>
 
         {/* Blog: recent LinkedIn articles */}
-        <Blog />
+        <section id="blog">
+          <Blog />
+        </section>
 
         {/* Contact: validated form */}
-        <Contact />
+        <section id="contact">
+          <Contact />
+        </section>
 
         {/* Footer strip */}
         <footer className={styles.footer}>
-          <p>© {new Date().getFullYear()} Kavinkumar R. Built with Next.js &amp; ☕</p>
+          <div className="container">
+            <p>© {new Date().getFullYear()} Kavinkumar R. Built with Next.js &amp; ☕</p>
+          </div>
         </footer>
       </main>
 
       {/* ── Floating app dock widget ── */}
       <FloatingDock />
-    </>
+    </div>
   );
 }

@@ -1,66 +1,74 @@
-// ============================================================
-// Blog.tsx — Recent blog posts section
-// ============================================================
-// Renders blog cards from content.ts. All blog links are external
-// (LinkedIn) but the component is ready to accept internal blog pages.
-// ============================================================
+"use client";
 
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { ExternalLink } from "lucide-react";
 import { blogs } from "@/data/content";
 import styles from "./Blog.module.css";
 
 export default function Blog() {
   return (
     <section id="blog" className={styles.blog}>
-      <div className="section-inner">
-        <p className="section-title">Thoughts & Insights</p>
-        <h2 className="section-heading">Recent Blogs</h2>
+      <div className="container">
+         <header className={styles.header}>
+          <motion.span 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="tag-neon"
+          >
+            Knowledge
+          </motion.span>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="section-heading"
+          >
+            Latest <span className={styles.accent}>Articles</span>
+          </motion.h2>
+        </header>
 
         <div className={styles.grid}>
-          {blogs.map((post) => (
-            <article key={post.title} className={styles.card}>
-
-              {/* ── Thumbnail ── */}
-              <div className={styles.imageWrapper}>
+          {blogs.map((post, i) => (
+            <motion.article 
+              key={post.title} 
+              className={styles.card}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 * i }}
+              whileHover={{ y: -5 }}
+            >
+              <div className={styles.imageBox}>
                 <Image
                   src={post.thumbnail}
                   alt={post.title}
                   fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className={styles.image}
                 />
-                <span className={styles.dateChip}>{post.date}</span>
+                <div className={styles.dateOverlay}>{post.date}</div>
               </div>
 
-              {/* ── Content ── */}
-              <div className={styles.body}>
+              <div className={styles.content}>
                 <div className={styles.meta}>
-                  <span className="tag">{post.category}</span>
-                  <span className={styles.author}>
-                    By <strong>Kavinkumar</strong>
-                  </span>
+                  <span className={styles.category}>{post.category}</span>
                 </div>
-
+                <h3 className={styles.title}>{post.title}</h3>
                 <a
                   href={post.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={styles.title}
+                  className={styles.link}
                 >
-                  {post.title}
-                </a>
-
-                <a
-                  href={post.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`btn-ghost ${styles.readMore}`}
-                >
-                  Read More →
+                  <span>Read on LinkedIn</span>
+                  <ExternalLink size={16} />
                 </a>
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
       </div>

@@ -1,54 +1,64 @@
-// ============================================================
-// Services.tsx — Services section (CURRENTLY HIDDEN FROM PUBLIC)
-// ============================================================
-// This section is fully implemented but NOT visible to the public.
-// The section and nav link will not render until services are ready.
-//
-// HOW TO ENABLE:
-//   1. Set SERVICES_VISIBLE = true below.
-//   2. Add "Services" link to NAV_ITEMS in Sidebar.tsx.
-//   3. The section will automatically appear in the UI.
-// ============================================================
+"use client";
 
 import React from "react";
+import { motion } from "framer-motion";
+import { Smartphone, Palette, Globe, Check } from "lucide-react";
 import { services } from "@/data/content";
 import styles from "./Services.module.css";
 
-// ─── VISIBILITY TOGGLE ────────────────────────────────────────
-// Change this to `true` when you are ready to show services to the public.
-const SERVICES_VISIBLE = false;
-
-// ─── SERVICE ICONS (mapped by index) ─────────────────────────
-const SERVICE_ICONS = ["📱", "🎨", "🌐"];
+const SERVICE_ICONS = [
+  <Smartphone key="app" size={32} />,
+  <Palette key="design" size={32} />,
+  <Globe key="web" size={32} />
+];
 
 export default function Services() {
-  // ── Guard: render nothing if services are not yet public ──
-  if (!SERVICES_VISIBLE) return null;
-
   return (
     <section id="services" className={styles.services}>
-      <div className="section-inner">
-        <p className="section-title">What I Offer</p>
-        <h2 className="section-heading">Top Notch Services</h2>
+      <div className="container">
+        <header className={styles.header}>
+          <motion.span 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="tag-neon"
+          >
+            Solutions
+          </motion.span>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="section-heading"
+          >
+            Specialized <span className={styles.accent}>Services</span>
+          </motion.h2>
+        </header>
 
         <div className={styles.grid}>
           {services.map((service, i) => (
-            <div key={service.title} className={styles.card}>
-              <div className={styles.cardIcon}>{SERVICE_ICONS[i] ?? "💡"}</div>
+            <motion.div 
+              key={service.title} 
+              className={styles.card}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 * i }}
+              whileHover={{ y: -10 }}
+            >
+              <div className={styles.iconBox}>{SERVICE_ICONS[i]}</div>
               <h3 className={styles.cardTitle}>{service.title}</h3>
-              <ul className={styles.cardList}>
+              <ul className={styles.list}>
                 {service.items.map((item) => (
-                  <li key={item} className={styles.cardListItem}>{item}</li>
+                  <li key={item} className={styles.listItem}>
+                    <Check size={14} color="var(--color-neon-blue)" />
+                    <span>{item}</span>
+                  </li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
           ))}
-        </div>
-
-        <div className={styles.comingSoon}>
-          <p className={styles.comingSoonText}>
-            🚀 More services coming soon. Stay tuned!
-          </p>
         </div>
       </div>
     </section>

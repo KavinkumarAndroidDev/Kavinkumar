@@ -1,320 +1,370 @@
-/* ============================================================
-   About.module.css — Styles for the About section
-   ============================================================ */
-
 .about {
-  padding: var(--space-3xl) 0;
+  padding: 120px 0;
+  position: relative;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-2xl);
-  margin-bottom: var(--space-2xl);
+.header {
+  margin-bottom: 4rem;
 }
 
-/* ─── Bio Card ─── */
+.accent {
+  background: linear-gradient(to right, var(--color-neon-blue), var(--color-neon-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Card Specifics */
 .bioCard {
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border-subtle);
-  border-radius: var(--radius-lg);
-  padding: var(--space-xl);
-}
-
-.bioText {
-  color: var(--color-text-secondary);
-  font-size: 0.925rem;
-  line-height: 1.85;
-  margin-bottom: var(--space-md);
-}
-
-.bioText:last-of-type { margin-bottom: var(--space-xl); }
-
-/* ─── Details list ─── */
-.detailsList {
-  display: grid;
-  gap: var(--space-sm);
-  margin-bottom: var(--space-xl);
-}
-
-.detailItem {
-  display: flex;
-  gap: var(--space-md);
-  font-size: 0.875rem;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid var(--color-border-subtle);
-}
-
-.detailItem:last-child { border: none; }
-
-.detailLabel {
-  color: var(--color-text-muted);
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  font-size: 0.75rem;
-  min-width: 90px;
-  padding-top: 2px;
-}
-
-.detailValue {
-  color: var(--color-text-primary);
-  font-weight: 500;
-}
-
-.detailValue a {
-  color: var(--color-accent-primary);
-  transition: color var(--transition-base);
-}
-
-.detailValue a:hover { color: var(--color-accent-secondary); }
-
-/* ─── Skills Card ─── */
-.skillsCard {
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border-subtle);
-  border-radius: var(--radius-lg);
-  padding: var(--space-xl);
-}
-
-.skillGroup {
-  margin-bottom: var(--space-xl);
-}
-
-.skillGroup:last-child { margin-bottom: 0; }
-
-.skillGroupTitle {
-  font-family: var(--font-display);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-text-muted);
-  margin-bottom: var(--space-md);
-}
-
-.skillItem {
-  margin-bottom: var(--space-md);
-}
-
-.skillItemHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 6px;
-}
-
-.skillLabel {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--color-text-primary);
-}
-
-.skillValue {
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--color-accent-primary);
-}
-
-/* ─── Timeline / Experience Section ─── */
-.timelineSection {
-  margin-bottom: var(--space-2xl);
-}
-
-.timelineGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-xl);
-}
-
-.timelineCard {
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border-subtle);
-  border-radius: var(--radius-lg);
-  padding: var(--space-xl);
-}
-
-.timelineCardTitle {
-  font-family: var(--font-display);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-accent-primary);
-  margin-bottom: var(--space-lg);
-}
-
-.timelineItemRole {
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--color-text-primary);
-  margin-bottom: 2px;
-}
-
-.timelineItemOrg {
-  font-size: 0.82rem;
-  color: var(--color-text-secondary);
-  margin-bottom: 4px;
-}
-
-.timelineItemPeriod {
-  font-size: 0.75rem;
-  color: var(--color-accent-primary);
-  font-weight: 600;
-  letter-spacing: 0.05em;
-}
-
-/* ─── Leadership / Certs ─── */
-.accoladeGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-xl);
-  margin-bottom: var(--space-2xl);
-}
-
-.accoladCard {
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border-subtle);
-  border-radius: var(--radius-lg);
-  padding: var(--space-xl);
-}
-
-.accoladeCardTitle {
-  font-family: var(--font-display);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-accent-primary);
-  margin-bottom: var(--space-lg);
-}
-
-.accoladeItem {
-  padding: var(--space-sm) 0;
-  border-bottom: 1px solid var(--color-border-subtle);
-}
-
-.accoladeItem:last-child { border: none; }
-
-.accoladeTitle {
-  font-weight: 600;
-  font-size: 0.88rem;
-  color: var(--color-text-primary);
-  margin-bottom: 2px;
-}
-
-.accoladeOrg {
-  font-size: 0.78rem;
-  color: var(--color-text-muted);
-}
-
-.accoladePeriod {
-  font-size: 0.75rem;
-  color: var(--color-accent-primary);
-  font-weight: 600;
-  margin-top: 2px;
-}
-
-/* ─── Publication Card ─── */
-.pubCard {
-  background: linear-gradient(135deg, rgba(124,106,247,0.08), rgba(94,156,240,0.08));
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-xl);
+  grid-column: span 2;
+  grid-row: span 2;
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
 }
 
-.pubTitle {
-  font-family: var(--font-display);
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--color-text-primary);
-  line-height: 1.4;
-}
-
-.pubPublisher {
-  display: inline-flex;
+.cardHeader {
+  display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-shrink: 0;
 }
 
-/* ─── Testimonials Carousel ─── */
-.testimonialsSection {
-  margin-bottom: var(--space-2xl);
+.cardTitle {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
 }
 
-.testimonialGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: var(--space-lg);
-}
-
-.testimonialCard {
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border-subtle);
-  border-radius: var(--radius-lg);
-  padding: var(--space-xl);
+.bioContent {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
-  transition: border-color var(--transition-base), transform var(--transition-base);
+  gap: 1rem;
+  overflow-y: auto; /* Enable scrolling */
+  padding-right: 1rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--glass-border) transparent;
 }
 
-.testimonialCard:hover {
-  border-color: var(--color-border);
-  transform: translateY(-3px);
+.bioContent::-webkit-scrollbar {
+  width: 4px;
 }
 
-.quoteIcon {
-  font-size: 2rem;
-  color: var(--color-accent-primary);
-  line-height: 1;
-  opacity: 0.6;
+.bioContent::-webkit-scrollbar-thumb {
+  background-color: var(--glass-border);
+  border-radius: 10px;
 }
 
-.testimonialText {
-  font-size: 0.875rem;
+.bioContent p {
+  font-size: 1.1rem;
   line-height: 1.8;
+}
+
+.personalDetails {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--glass-border);
+  flex-shrink: 0;
+}
+
+.detail {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 0.9rem;
   color: var(--color-text-secondary);
+}
+
+.pulse {
+  width: 8px;
+  height: 8px;
+  background: var(--color-neon-lime);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--color-neon-lime);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.95); opacity: 0.9; }
+  70% { transform: scale(1.1); opacity: 0.5; }
+  100% { transform: scale(0.95); opacity: 0.9; }
+}
+
+/* Stats */
+.bigNumber {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.subLabel {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.skillsDetailed {
+  grid-column: span 2;
+}
+
+.journeyCard {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.awardsCard, .certCard, .leadershipCard, .pubCard {
+  grid-column: span 2;
+}
+
+/* Skills Detailed */
+.skillTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.skillTag {
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  border-radius: 99px;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.skillDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-neon-blue);
+  box-shadow: 0 0 8px var(--color-neon-blue);
+}
+
+/* Journey */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.timelineItem {
+  display: flex;
+  gap: 2rem;
+  position: relative;
+}
+
+.timelinePoint {
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--color-neon-blue);
+  background: var(--color-obsidian);
+  border-radius: 50%;
+  margin-top: 0.5rem;
+  z-index: 1;
+}
+
+.timelineItem::after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 1rem;
+  width: 1px;
+  height: calc(100% + 1rem);
+  background: var(--glass-border);
+}
+
+.timelineItem:last-child::after {
+  display: none;
+}
+
+.timelineContent {
   flex: 1;
 }
 
-.testimonialAuthor {
-  display: flex;
-  align-items: center;
-  gap: var(--space-md);
-  padding-top: var(--space-md);
-  border-top: 1px solid var(--color-border-subtle);
-}
-
-.authorAvatar {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid var(--color-border);
-}
-
-.authorName {
-  font-family: var(--font-display);
-  font-size: 0.9rem;
+.timelineDate {
+  font-size: 0.75rem;
+  color: var(--color-accent);
   font-weight: 700;
-  color: var(--color-text-primary);
+  letter-spacing: 0.1em;
 }
 
-.authorRole {
-  font-size: 0.78rem;
+.timelineRole {
+  font-size: 1.1rem;
+  margin: 0.2rem 0;
+}
+
+.timelineOrg {
+  font-size: 0.9rem;
   color: var(--color-text-muted);
 }
 
-/* ─── RESPONSIVE ─── */
-@media (max-width: 768px) {
-  .grid,
-  .timelineGrid,
-  .accoladeGrid {
+/* Action Card */
+.actionCard {
+  background: linear-gradient(135deg, rgba(0, 242, 255, 0.1), rgba(188, 19, 254, 0.1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fullLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.viewLink {
+  font-size: 0.75rem;
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+.certList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.certList li {
+  display: flex;
+  flex-direction: column;
+}
+
+.certTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.certIssuer {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.leadershipList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.roleItem p {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 0.2rem;
+}
+
+.roleItem span {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+}
+
+.pubLink {
+  display: block;
+}
+
+.pubLink h4 {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-primary);
+}
+
+.publisher {
+  font-size: 0.8rem;
+  color: var(--color-accent);
+  font-weight: 700;
+  margin-right: 0.5rem;
+}
+
+/* Testimonials */
+.testimonials {
+  margin-top: 8rem;
+}
+
+.subHeading {
+  font-size: 1.5rem;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-text-muted);
+}
+
+.testimonialScroll {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.testimonialCard {
+  background: var(--glass-bg);
+  padding: 2.5rem;
+  border-radius: 32px;
+  border: 1px solid var(--glass-border);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.testimonialText {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: auto;
+}
+
+.avatar {
+  border-radius: 50%;
+  border: 2px solid var(--glass-border);
+}
+
+.authorName {
+  display: block;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.authorRole {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 1100px) {
+  .testimonialScroll {
     grid-template-columns: 1fr;
+  }
+  
+  .bioCard, .skillsDetailed, .awardsCard, .certCard, .leadershipCard, .pubCard {
+    grid-column: span 1;
+  }
+  
+  .journeyCard {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .journeyCard {
+    grid-column: span 1;
   }
 }

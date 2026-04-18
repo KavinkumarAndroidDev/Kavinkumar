@@ -1,93 +1,75 @@
 "use client";
-// ============================================================
-// Hero.tsx — Landing section with animated avatar and typewriter tagline
-// ============================================================
-// Renders the full-screen hero with rotating avatar ring, gradient name,
-// typewriter role animation, CTA buttons, and scroll indicator.
-// ============================================================
 
-import React, { useEffect, useState } from "react";
-import Image from "next/image";
+import React from "react";
+import { motion } from "framer-motion";
 import { personalInfo } from "@/data/content";
 import styles from "./Hero.module.css";
+import { ChevronRight, ArrowDownRight } from "lucide-react";
 
+/**
+ * Hero Section - Redesigned for "Deep Obsidian & Neon Fluid"
+ * Balanced 2-column layout to prevent overlaps.
+ */
 export default function Hero() {
-  // ─── Typewriter state ─────────────────────────────────────
-  const [roleIndex, setRoleIndex] = useState(0);
-  const [displayed, setDisplayed] = useState("");
-  const [deleting, setDeleting] = useState(false);
-
-  useEffect(() => {
-    const role = personalInfo.taglines[roleIndex];
-    let timeout: ReturnType<typeof setTimeout>;
-
-    if (!deleting && displayed.length < role.length) {
-      // Typing
-      timeout = setTimeout(() => setDisplayed(role.slice(0, displayed.length + 1)), 80);
-    } else if (!deleting && displayed.length === role.length) {
-      // Pause before deleting
-      timeout = setTimeout(() => setDeleting(true), 1800);
-    } else if (deleting && displayed.length > 0) {
-      // Deleting
-      timeout = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 45);
-    } else if (deleting && displayed.length === 0) {
-      // Move to next role
-      setDeleting(false);
-      setRoleIndex((i) => (i + 1) % personalInfo.taglines.length);
-    }
-
-    return () => clearTimeout(timeout);
-  }, [displayed, deleting, roleIndex]);
+  const { name, taglines, avatar } = personalInfo;
 
   return (
     <section id="home" className={styles.hero}>
-      {/* Decorative dot-grid background */}
-      <div className={styles.gridDecor} aria-hidden />
-
-      <div className={styles.content}>
-        {/* ─── Avatar ─── */}
-        <div className={styles.avatarWrapper}>
-          <div className={styles.avatarRing}>
-            <div className={styles.avatarInner}>
-              <Image
-                src={personalInfo.avatar}
-                alt={personalInfo.displayName}
-                width={132}
-                height={132}
-                priority
-                className={styles.avatarImg}
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* ─── Name ─── */}
-        <h1 className={styles.name}>{personalInfo.displayName}</h1>
-
-        {/* ─── Typewriter tagline ─── */}
-        <div className={styles.taglineWrapper} aria-label={`Role: ${displayed}`}>
-          <span className={styles.taglinePrefix}>I&apos;m a</span>
-          <span className={styles.taglineText}>{displayed}</span>
-        </div>
-
-        {/* ─── CTAs ─── */}
-        <div className={styles.actions}>
-          <a
-            href={personalInfo.cvUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary"
-          >
-            Download CV
-          </a>
-          <a href="#contact" className="btn-ghost">Get In Touch</a>
-        </div>
+      <div className={styles.canvas}>
+        <div className={styles.fluidBg} />
       </div>
 
-      {/* ─── Scroll indicator ─── */}
-      <div className={styles.scrollIndicator} aria-hidden>
-        <span>Scroll</span>
-        <div className={styles.scrollLine} />
+      <div className="container">
+        <div className={styles.layout}>
+          {/* Text Content */}
+          <div className={styles.content}>
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <span className="tag-neon">Available for hire</span>
+              <h1 className={styles.headline}>
+                <span className={styles.outline}>Crafting</span>{' '}
+                <span className={styles.gradientText}>Digital</span>{' '}
+                Phenomena
+              </h1>
+            </motion.div>
+
+            <motion.p 
+              className={styles.subheadline}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              I am <span className={styles.highlight}>{name}</span>, an {taglines[0]} specializing in architecture that feels like the future.
+            </motion.p>
+
+            <motion.div 
+              className={styles.ctaGroup}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <a href="#portfolio" className="btn-neon">
+                <span>Explore Works</span>
+                <ArrowDownRight size={18} />
+              </a>
+              <a href="#contact" className="btn-ghost">
+                <span>Start Project</span>
+                <ChevronRight size={18} />
+              </a>
+            </motion.div>
+        </div>
+      </div>
+      </div>
+
+      <div className={styles.scrollIndicator}>
+        <motion.div 
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className={styles.mouse}
+        />
       </div>
     </section>
   );

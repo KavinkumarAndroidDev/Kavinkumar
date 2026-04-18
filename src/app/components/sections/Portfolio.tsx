@@ -1,93 +1,90 @@
 "use client";
-// ============================================================
-// Portfolio.tsx — Filterable project grid with detail modal
-// ============================================================
-// Renders all projects from content.ts with category filtering.
-// Clicking a card opens a modal with full project details.
-// ============================================================
 
 import React, { useState, useCallback } from "react";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+import { X, ExternalLink, Monitor, Smartphone, Cloud, Terminal } from "lucide-react";
+import { GithubIcon } from "../SocialIcons";
 import { projects, Project, ProjectCategory } from "@/data/content";
 import styles from "./Portfolio.module.css";
 
-// ─── FILTER OPTIONS ───────────────────────────────────────────
-// We derive these automatically from your projects in content.ts.
-// This way, if you add a new category (like "Java"), the tab appears instantly.
 const CATEGORIES = Array.from(new Set(projects.map((p) => p.category)));
 const FILTERS: { label: string; value: "All" | ProjectCategory }[] = [
   { label: "All", value: "All" },
   ...CATEGORIES.map((cat) => ({ label: cat, value: cat })),
 ];
 
-// ─── PROJECT MODAL ────────────────────────────────────────────
+const getIcon = (category: ProjectCategory) => {
+  switch (category) {
+    case "App": return <Smartphone size={16} />;
+    case "Website": return <Monitor size={16} />;
+    case "Cloud": return <Cloud size={16} />;
+    case "Java": return <Terminal size={16} />;
+    default: return null;
+  }
+};
+
 function ProjectModal({ project, onClose }: { project: Project; onClose: () => void }) {
   return (
-    <div className={styles.modalOverlay} onClick={onClose} role="dialog" aria-modal aria-label={project.title}>
-      <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
-
-        {/* ── Header Image ── */}
-        <div className={styles.modalHeader}>
-          <Image
-            src={project.thumbnail}
-            alt={project.title}
-            width={800}
-            height={450}
-            className={styles.modalImage}
-          />
-          <button className={styles.modalClose} onClick={onClose} aria-label="Close">×</button>
-        </div>
-
-        {/* ── Content ── */}
-        <div className={styles.modalBody}>
-          <h2 className={styles.modalTitle}>{project.title}</h2>
-
-          <div className={styles.modalMeta}>
-            <span className="tag">{project.category}</span>
-            <span className="tag">{project.status}</span>
+    <motion.div 
+      className={styles.modalOverlay} 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={onClose}
+    >
+      <motion.div 
+        className={styles.modal}
+        initial={{ y: 50, opacity: 0, scale: 0.9 }}
+        animate={{ y: 0, opacity: 1, scale: 1 }}
+        exit={{ y: 50, opacity: 0, scale: 0.9 }}
+        transition={{ type: "spring", damping: 25, stiffness: 300 }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button className={styles.modalClose} onClick={onClose} aria-label="Close modal"><X size={20} /></button>
+        
+        <div className={styles.modalGrid}>
+          <div className={styles.modalVisual}>
+            <Image src={project.thumbnail} alt={project.title} width={800} height={600} className={styles.modalImage} />
           </div>
-
-          <p className={styles.modalDescription}>{project.description}</p>
-
-          {/* Features */}
-          <p className={styles.modalSectionTitle}>Key Features</p>
-          <ul className={styles.featureList}>
-            {project.features.map((f) => (
-              <li key={f} className={styles.featureItem}>{f}</li>
-            ))}
-          </ul>
-
-          {/* Tech stack */}
-          <p className={styles.modalSectionTitle}>Technologies Used</p>
-          <div className={styles.techTags}>
-            {project.technologies.map((t) => (
-              <span key={t} className="tag">{t}</span>
-            ))}
-          </div>
-
-          {/* Links */}
-          <div className={styles.modalLinks}>
-            {project.links
-              .filter((l) => l.href)
-              .map((l) => (
-                <a
-                  key={l.label}
-                  href={l.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary"
-                >
-                  {l.label}
+          
+          <div className={styles.modalContent}>
+            <div className={styles.modalHeader}>
+              <span className="tag-neon">{project.category}</span>
+              <h2 className={styles.modalTitle}>{project.title}</h2>
+            </div>
+            
+            <p className={styles.modalDesc}>{project.description}</p>
+            
+            <div className={styles.modalSection}>
+              <h3>Capabilities</h3>
+              <ul className={styles.featureList}>
+                {project.features.map(f => <li key={f}>{f}</li>)}
+              </ul>
+            </div>
+            
+            <div className={styles.modalSection}>
+              <h3>Environment</h3>
+              <div className={styles.techStack}>
+                {project.technologies.map(t => <span key={t} className={styles.techTag}>{t}</span>)}
+              </div>
+            </div>
+            
+            <div className={styles.modalActions}>
+              {project.links.filter(l => l.href).map(l => (
+                <a key={l.label} href={l.href} target="_blank" className="btn-neon">
+                  {l.label === 'GitHub' ? <GithubIcon size={18} /> : <ExternalLink size={18} />}
+                  <span>{l.label}</span>
                 </a>
               ))}
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
 
-// ─── COMPONENT ────────────────────────────────────────────────
 export default function Portfolio() {
   const [activeFilter, setActiveFilter] = useState<"All" | ProjectCategory>("All");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -96,68 +93,70 @@ export default function Portfolio() {
     ? projects
     : projects.filter((p) => p.category === activeFilter);
 
-  const openModal = useCallback((p: Project) => setSelectedProject(p), []);
-  const closeModal = useCallback(() => setSelectedProject(null), []);
-
   return (
     <section id="portfolio" className={styles.portfolio}>
-      <div className="section-inner">
-        <p className="section-title">My Work</p>
-        <h2 className="section-heading">Creative Portfolio</h2>
+      <div className="container">
+        <header className={styles.header}>
+          <span className="tag-neon">Excellence</span>
+          <h2 className="section-heading">Featured <span className={styles.accent}>Explorations</span></h2>
+        </header>
 
-        {/* ── Filter Tabs ── */}
-        <div className={styles.filters}>
+        {/* Filters */}
+        <div className={styles.filterBar}>
           {FILTERS.map((f) => (
             <button
               key={f.value}
-              className={`${styles.filterBtn} ${activeFilter === f.value ? styles.active : ""}`}
+              className={`${styles.filterTab} ${activeFilter === f.value ? styles.activeTab : ""}`}
               onClick={() => setActiveFilter(f.value)}
             >
-              {f.label}
+              {f.value !== 'All' && getIcon(f.value as ProjectCategory)}
+              <span>{f.label}</span>
             </button>
           ))}
         </div>
 
-        {/* ── Project Grid ── */}
-        <div className={styles.grid}>
-          {filtered.map((project) => (
-            <div
-              key={project.title}
-              className={styles.card}
-              onClick={() => openModal(project)}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => e.key === "Enter" && openModal(project)}
-              aria-label={`View ${project.title} details`}
-            >
-              <div className={styles.cardImageWrapper}>
-                <Image
-                  src={project.thumbnail}
-                  alt={project.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className={styles.cardImage}
-                />
-                <div className={styles.cardOverlay}>
-                  <span className={styles.cardOverlayIcon}>View Details</span>
+        {/* Grid */}
+        <motion.div layout className={styles.grid}>
+          <AnimatePresence mode="popLayout">
+            {filtered.map((project) => (
+              <motion.div
+                layout
+                key={project.title}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.4 }}
+                className={styles.card}
+                onClick={() => setSelectedProject(project)}
+              >
+                <div className={styles.imageBox}>
+                  <Image src={project.thumbnail} alt={project.title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className={styles.img} />
+                  <div className={styles.overlay}>
+                    <div className={styles.overlayContent}>
+                      <span className={styles.viewLabel}>Inspect Project</span>
+                      <div className={styles.cardTech}>
+                        {project.technologies.slice(0, 3).map(t => <span key={t}>{t}</span>)}
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div className={styles.cardBody}>
-                <h3 className={styles.cardTitle}>{project.title}</h3>
-                <div className={styles.cardMeta}>
-                  <span className="tag">{project.category}</span>
-                  <span className={styles.cardStatus}>{project.status}</span>
+                <div className={styles.cardInfo}>
+                  <div className={styles.cardHeader}>
+                    <h3>{project.title}</h3>
+                    <span className={styles.category}>{project.category}</span>
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))}
-        </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
       </div>
 
-      {/* ── Detail Modal ── */}
-      {selectedProject && (
-        <ProjectModal project={selectedProject} onClose={closeModal} />
-      )}
+      <AnimatePresence>
+        {selectedProject && (
+          <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+        )}
+      </AnimatePresence>
     </section>
   );
 }

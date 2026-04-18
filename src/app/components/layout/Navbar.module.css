@@ -1,0 +1,155 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1.5rem 0;
+  transition: var(--transition-smooth);
+}
+
+.scrolled {
+  padding: 0.8rem 0;
+  background: rgba(2, 2, 5, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.navContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--page-padding);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.5rem;
+  letter-spacing: -0.05em;
+  color: var(--color-text-primary);
+}
+
+.dot {
+  color: var(--color-neon-blue);
+}
+
+.links {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.link {
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-secondary);
+  position: relative;
+}
+
+.link:hover {
+  color: var(--color-text-primary);
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-neon-blue);
+  transition: var(--transition-smooth);
+}
+
+.link:hover::after {
+  width: 100%;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.iconLink {
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: center;
+  transition: var(--transition-fast);
+}
+
+.iconLink:hover {
+  color: var(--color-neon-blue);
+  transform: translateY(-2px);
+}
+
+.contactBtn {
+  background: var(--color-text-primary);
+  color: var(--color-obsidian);
+  padding: 0.6rem 1.2rem;
+  border-radius: 99px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  border: none;
+  transition: var(--transition-smooth);
+}
+
+.contactBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.menuToggle {
+  display: none;
+  color: var(--color-text-primary);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.mobileMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: var(--color-obsidian);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.mobileLink {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .links {
+    display: none;
+  }
+  
+  .menuToggle {
+    display: block;
+  }
+  
+  .contactBtn span {
+    display: none;
+  }
+  
+  .contactBtn {
+    padding: 0.6rem;
+  }
+}

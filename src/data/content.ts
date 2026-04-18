@@ -89,13 +89,15 @@ export const education = [
 
 // ─── LEADERSHIP & RECOGNITION ─────────────────────────────────
 export const leadershipRoles = [
-  { title: "Secretary", organization: "Techtastic association, KIOT", period: "2025 - Present" },
+  { title: "Secretary", organization: "Techtastic association, KIOT", period: "2025 - 2026" },
   { title: "Student ambassador", organization: "Technology for education club, KIOT", period: "2025 - Present" },
   { title: "Joint secretary", organization: "Techtastic association, KIOT", period: "2024 - 2025" },
 ];
 
 export const awardsAndHonors = [
   { title: "Best Student in Co-Curricular Activities Award", organization: "Knowledge Institute of Technology", year: "2025" },
+  { title: "Best Student in Extra-Curricular Activities Award", organization: "Knowledge Institute of Technology", year: "2026" },
+  { title: "Achievers Day Award", organization: "Knowledge Institute of Technology", year: "2026" },
   { title: "Achievers Day Award", organization: "Knowledge Institute of Technology", year: "2025" },
   { title: "Achievers Day Award", organization: "Knowledge Institute of Technology", year: "2024" },
 ];
