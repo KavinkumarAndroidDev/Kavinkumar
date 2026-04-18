@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kavinkumar R | Developer Portfolio
 
-## Getting Started
+Welcome to my personal developer portfolio! This project is a modern, ultra-responsive web application built to showcase my backend engineering, cloud security work, and mobile development expertise.
 
-First, run the development server:
+## 🚀 Built With
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+*   **Framework**: [Next.js](https://nextjs.org/) (App Router)
+*   **Library**: [React 19](https://react.dev/)
+*   **Styling**: Pure Vanilla CSS (`globals.css`) & CSS Modules with Glassmorphism 2.0 aesthetics
+*   **Animations**: [Framer Motion](https://www.framer.com/motion/) for fluid page transitions and interactive micro-animations
+*   **Icons**: [Lucide React](https://lucide.dev/)
+*   **Deployment**: Cloud-ready (optimized for Vercel / Netlify)
+
+## ✨ Key Features
+
+*   **Deep Obsidian & Neon Fluid Design**: A specialized, custom-designed dark mode interface that feels premium, highly responsive, and "mathmatically perfect" across ultra-wide monitors down to 320px mobile devices.
+*   **Zero-Gap Bento Grid**: A highly optimized CSS Grid layout in the "Behind the Code" section that pieces together data like a puzzle on all resolutions.
+*   **Automated SEO & Analytics**: Ready out-of-the-box with fully managed meta tags and Google Analytics injection via Next.js Layout elements.
+*   **Single-Source Data Mapping**: Every piece of localized text, image, experience dataset, and layout metadata lives strictly inside `/src/data/content.ts`. This allows rapid iteration without having to search through React components.
+
+## 📁 Project Structure
+
+```text
+├── src/
+│   ├── app/
+│   │   ├── components/  # Modular React standard components & sections
+│   │   ├── globals.css  # Core layout variables, typography clamps, and themes
+│   │   ├── layout.tsx   # Next.js Root Layout (SEO / Font / GA configuration)
+│   │   └── page.tsx     # Application assembly boundary
+│   └── data/
+│       └── content.ts   # The brain of the app — contains all portfolio data!
+└── public/
+    └── img/             # Static assets (Project thumbnails, blog covers, etc.)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Local Development
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+To run the application locally, you will need Node.js installed.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
 
-## Learn More
+2.  **Start the development server:**
+    ```bash
+    npm run dev
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+3.  **Open your browser:**
+    Navigate to [http://localhost:3000](http://localhost:3000) to see the live reloading application.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📈 Managing Data & Content
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+To update the portfolio with new projects, skills, certifications, or to change the primary aesthetic text—simply edit `src/data/content.ts`. 
 
-## Deploy on Vercel
+The React components are designed to automatically iterate through this file, so zero code structure modifications are required when updating your CV.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📜 License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is intended as a personal portfolio. Please respect the respective copyrights of the included project assets and profile data. 

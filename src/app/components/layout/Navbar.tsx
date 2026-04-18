@@ -60,7 +60,7 @@ const Navbar = () => {
           
           {/* Mobile Menu Toggle */}
           <button className={styles.menuToggle} onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
-            {isOpen ? <X title="Close" /> : <Menu title="Menu" />}
+            {isOpen ? <X /> : <Menu />}
           </button>
         </div>
       </div>
