@@ -13,10 +13,10 @@ export const personalInfo = {
   name: "Kavinkumar R",
   displayName: "Kavinkumar",
   shortName: "KAVIN",
-  taglines: ["App Developer", "Web Designer", "Linux Enthusiast"],
+  taglines: ["Java Full Stack Developer", "App Developer", "Web Designer", "Linux Enthusiast"],
   bio: [
-    "I am a mobile developer passionate about creating seamless and user-friendly app experiences. With a background in native Android development using Kotlin and Java, I have recently started exploring React Native to expand my cross-platform capabilities. At the same time, I am transitioning my focus towards cloud computing, with a strong interest in AWS Cloud Security.",
-    "I enjoy problem-solving, collaborating in teams, and taking on leadership roles when needed, making me an adaptable and valuable contributor to any project. I find joy in continuous learning and embracing new challenges. My goal is to grow into a cloud security professional while continuing to build meaningful and secure applications.",
+    "I started out building Android applications and quickly became fascinated by the systems behind great software. While mobile development taught me how to create thoughtful user experiences, it also pushed me to explore backend systems, cloud infrastructure, and how scalable applications are designed beyond the interface. Today, I’m working as a Java Full Stack Developer Intern while continuing to learn across systems, cloud, and security.",
+    "I enjoy problem-solving, collaborating with teams, and continuously learning through real projects and challenges. Alongside development, I remain deeply curious about cloud, infrastructure, and security, especially the parts of technology users never directly see but rely on every day.",
   ],
   details: [
     { label: "Name", value: "Kavinkumar R" },
@@ -27,7 +27,7 @@ export const personalInfo = {
     { label: "GitHub", value: "KavinkumarAndroidDev", href: "https://www.github.com/KavinkumarAndroidDev/" },
     { label: "Google Play", value: "codebykavin · Play Store", href: "https://play.google.com/store/apps/dev?id=5627394654262148692" },
     { label: "LeetCode", value: "Kavinkumar_R_442005", href: "https://www.leetcode.com/u/Kavinkumar_R_442005/" },
-    { label: "Freelance", value: "Available" },
+    //{ label: "Freelance", value: "Available" },
   ],
   cvUrl: "https://drive.google.com/file/d/1Vvc_GQ_2SPcXRu5p_c6fHH1OLfXNumbG/view?usp=drive_link",
   avatar: "/img/kavin.jpg",
@@ -50,23 +50,40 @@ export const skillGroups = [
   {
     title: "Programming Skills & App Designing",
     skills: [
-      { label: "Python", value: 80 },
       { label: "C", value: 75 },
+
+      // Java Full Stack Development
+      { label: "Java", value: 90 },
+      { label: "Spring Boot", value: 88 },
+      { label: "React", value: 85 },
+      { label: "MySQL", value: 82 },
+      { label: "HTML", value: 92 },
+      { label: "CSS", value: 88 },
+      { label: "JavaScript", value: 87 },
+
+      // Android Development
       { label: "Kotlin", value: 95 },
       { label: "Jetpack Compose", value: 90 },
+      { label: "Android Development", value: 93 },
     ],
   },
-  {
-    title: "Language Skills",
-    skills: [
-      { label: "English", value: 95 },
-      { label: "Tamil", value: 100 },
-    ],
-  },
+
+  // {
+  //   title: "Language Skills",
+  //   skills: [
+  //     { label: "English", value: 95 },
+  //     { label: "Tamil", value: 100 },
+  //   ],
+  // },
 ];
 
 // ─── TIMELINE ─────────────────────────────────────────────────
 export const workExperience = [
+  {
+    role: "Java Full Stack Developer Intern",
+    company: "Ploceus Software Private Limited",
+    period: "May 2026 - Present",
+  },
   {
     role: "App Developer",
     company: "Creating Concepts & Developing Designs",
@@ -156,8 +173,8 @@ export const services = [
     items: ["Wireframing & Prototyping", "Responsive Layouts (Mobile & Web)", "User Flow Mapping"],
   },
   {
-    title: "Web Development",
-    items: ["Responsive Web Design", "WordPress Websites", "React Websites"],
+    title: "Software Development",
+    items: ["Java Full Stack Applications", "REST APIs & Backend Systems", "Responsive Web Applications"],
   },
 ];
 
@@ -404,43 +421,6 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: "SyncEvent",
-    category: "Website",
-    thumbnail: "/img/project/syncevent.png",
-    description: `SyncEvent is a frontend-focused Event Management System
-built using Vanilla JavaScript and Bootstrap. It allows
-users to browse events, register, and manage
-participation through a responsive interface.
-
-Key features:
-
-This project focuses on building a scalable frontend without
-frameworks, emphasizing modular architecture, state
-handling, and separation of concerns.`,
-    features: [
-      "Role-based access (Admin, Organizer, Attendee)",
-      "Event browsing, registration, and ticket flow",
-      "Dynamic module loading based on routes",
-      "Centralized state management for consistent UI updates",
-      "Form validation with real-time user feedback"
-    ],
-    technologies: [
-      "HTML",
-      "CSS (SCSS)",
-      "JavaScript",
-      "Bootstrap",
-      "JSON Server"
-    ],
-    status: "Completed",
-    links: [
-      {
-        label: "GitHub",
-        href: "https://github.com/KavinkumarAndroidDev/event-management-system-web.git",
-        icon: "github"
-      }
-    ]
-  },
-  {
     title: "Event Management System (Console)",
     category: "Java",
     thumbnail: "/img/project/syncevent-console.png",
@@ -474,7 +454,108 @@ separation of concerns without using frameworks.`,
         icon: "github"
       }
     ]
-  }
+  },
+  {
+    title: "Event Management System (Backend)",
+    category: "Java",
+    thumbnail: "/img/project/ems-backend.png",
+    description:
+      "Production-style Event Management System backend built using Spring Boot and MySQL. The system supports secure role-based workflows for admins, organizers, and attendees with modules for events, bookings, payments, refunds, notifications, and analytics.",
+    features: [
+      "JWT authentication with role-based access control (Admin, Organizer, Attendee)",
+      "RESTful APIs built using Spring Boot, Spring MVC, and Spring Data JPA",
+      "Event lifecycle workflows including draft, approval, publishing, and status updates",
+      "Booking and ticket inventory management with participant registration and check-in support",
+      "Razorpay payment integration with verification, retry handling, and refund management",
+      "OTP verification, token refresh, password hashing, and logout token revocation",
+      "Admin dashboards with revenue reports, ticket sales analytics, and organizer summaries",
+      "Feature-based modular backend architecture with clean controller-service-repository separation"
+    ],
+    technologies: [
+      "Java 21",
+      "Spring Boot",
+      "Spring MVC",
+      "Spring Data JPA",
+      "Spring Security",
+      "JWT",
+      "MySQL",
+      "Razorpay"
+    ],
+    status: "Completed",
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/KavinkumarAndroidDev/event-management-system-backend",
+        icon: "github"
+      }
+    ]
+  },
+  {
+    title: "SyncEvent (React)",
+    category: "Website",
+    thumbnail: "/img/project/syncevent-react.png",
+    description:
+      "Full-featured React-based Event Management System with role-based dashboards, centralized Redux state management, secure routing, and API-driven booking workflows.",
+    features: [
+      "Role-based protected routing for Admin, Organizer, and Attendee users",
+      "Centralized state management using Redux Toolkit slices",
+      "JWT authentication and refresh-token handling using Axios interceptors",
+      "Event discovery, ticket booking, participant management, and payment workflows",
+      "Admin modules for users, events, venues, categories, approvals, payments, and reports",
+      "Organizer dashboard with event creation, ticket management, registrations, and analytics",
+      "Dashboard reporting and charts using Recharts",
+      "Feature-based modular React architecture with reusable shared components"
+    ],
+    technologies: [
+      "React",
+      "Redux Toolkit",
+      "JavaScript",
+      "Axios",
+      "React Router",
+      "Recharts",
+      "SCSS"
+    ],
+    status: "Completed",
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/KavinkumarAndroidDev/SyncEvent",
+        icon: "github"
+      }
+    ]
+  },
+  {
+    title: "Event Management System (Frontend)",
+    category: "Website",
+    thumbnail: "/img/project/ems-frontend.png",
+    description:
+      "Frontend-focused Event Management System built using Vanilla JavaScript and SCSS with modular architecture, dynamic routing, and centralized state management.",
+    features: [
+      "Role-based access control for Admin, Organizer, and Attendee users",
+      "Dynamic module loading based on routes for optimized performance",
+      "Centralized state management for predictable UI updates",
+      "Mock REST API integration using JSON Server",
+      "Scalable feature-based frontend architecture without frameworks",
+      "Async data handling with modular UI rendering",
+      "Responsive layouts using Bootstrap and SCSS",
+      "Form validation and workflow-driven user interactions"
+    ],
+    technologies: [
+      "HTML",
+      "SCSS",
+      "JavaScript",
+      "Bootstrap",
+      "JSON Server"
+    ],
+    status: "Completed",
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/KavinkumarAndroidDev/event-management-system-web",
+        icon: "github"
+      }
+    ]
+  },
 ];
 
 // ─── BLOGS ────────────────────────────────────────────────────

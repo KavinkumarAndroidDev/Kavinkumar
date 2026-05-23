@@ -28,7 +28,7 @@ export default function Hero() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
-              <span className="tag-neon">Available for hire</span>
+              {/* <span className="tag-neon">Available for hire</span> */}
               <h1 className={styles.headline}>
                 <span className={styles.outline}>Crafting</span>{' '}
                 <span className={styles.gradientText}>Digital</span>{' '}
