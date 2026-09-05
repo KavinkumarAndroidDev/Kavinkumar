@@ -15,7 +15,7 @@ export const personalInfo = {
   shortName: "KAVIN",
   taglines: ["Java Full Stack Developer", "App Developer", "Web Designer", "Linux Enthusiast"],
   bio: [
-    "I started out building Android applications and quickly became fascinated by the systems behind great software. While mobile development taught me how to create thoughtful user experiences, it also pushed me to explore backend systems, cloud infrastructure, and how scalable applications are designed beyond the interface. Today, I’m working as a Java Full Stack Developer Intern while continuing to learn across systems, cloud, and security.",
+    "I started out building Android applications and quickly became fascinated by the systems behind great software. While mobile development taught me how to create thoughtful user experiences, it also pushed me to explore backend systems, cloud infrastructure, and how scalable applications are designed beyond the interface. Today, I'm working as a Junior Software Engineer while continuing to learn across systems, cloud, and security.",
     "I enjoy problem-solving, collaborating with teams, and continuously learning through real projects and challenges. Alongside development, I remain deeply curious about cloud, infrastructure, and security, especially the parts of technology users never directly see but rely on every day.",
   ],
   details: [
@@ -80,9 +80,14 @@ export const skillGroups = [
 // ─── TIMELINE ─────────────────────────────────────────────────
 export const workExperience = [
   {
-    role: "Java Full Stack Developer Intern",
+    role: "Junior Software Engineer",
     company: "Ploceus Software Private Limited",
-    period: "May 2026 - Present",
+    period: "Aug 2026 - Present",
+  },
+  {
+    role: "Software Engineer Intern",
+    company: "Ploceus Software Private Limited",
+    period: "May 2026 - Aug 2026",
   },
   {
     role: "App Developer",
