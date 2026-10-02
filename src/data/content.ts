@@ -426,6 +426,48 @@ export const projects: Project[] = [
     ],
   },
   {
+    title: "WarOracle",
+    category: "Java",
+    thumbnail: "/img/project/WarOracle.png",
+    description:
+      "High-throughput predictive analytics engine and automated war strategy optimizer for competitive Clash of Clans Clan Wars and CWL, combining Monte Carlo probabilistic simulations, Kuhn-Munkres bipartite graph matching, and empirical Bayesian combat modeling.",
+    features: [
+      "Multi-wave Monte Carlo simulation engine executing up to 50,000 war paths in sub-second latency",
+      "Zero-heap / low-allocation hot loops with 64-bit bit-packed primitive representations to eliminate GC pauses",
+      "Dedicated worker thread isolation with ForkJoinPool to protect HTTP request and cache heartbeat threads",
+      "Kuhn-Munkres (Hungarian algorithm) maximum weight bipartite matching for globally optimal attacker-to-defender assignment",
+      "Configurable tactical doctrines (Safe, Balanced, Aggressive) with automated fallback contingency trees and threat analysis",
+      "HeroEquipmentPowerCalculator and empirical Bayesian modeling with exponential decay time-weighting",
+      "Resilient Supercell REST API integration with multi-token key pool rotation and Hazelcast IMDG distributed caching",
+      "Tactical analytics frontend with real-time war HUD, Chart.js score distributions, and html-to-image social export"
+    ],
+    technologies: [
+      "Java 21",
+      "Spring Boot 4",
+      "Hazelcast IMDG",
+      "MySQL",
+      "Hibernate / JPA",
+      "React 18",
+      "Tailwind CSS",
+      "Chart.js",
+      "ForkJoinPool",
+      "Supercell REST API"
+    ],
+    status: "Completed",
+    links: [
+      {
+        label: "GitHub (Backend)",
+        href: "https://github.com/KavinkumarAndroidDev/WarOracle",
+        icon: "github"
+      },
+      {
+        label: "GitHub (Frontend)",
+        href: "https://github.com/KavinkumarAndroidDev/WarOracle_FrontEnd",
+        icon: "github"
+      }
+    ]
+  },
+  {
     title: "Event Management System (Console)",
     category: "Java",
     thumbnail: "/img/project/syncevent-console.png",

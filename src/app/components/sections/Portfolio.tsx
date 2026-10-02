@@ -73,7 +73,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
             <div className={styles.modalActions}>
               {project.links.filter(l => l.href).map(l => (
                 <a key={l.label} href={l.href} target="_blank" className="btn-neon">
-                  {l.label === 'GitHub' ? <GithubIcon size={18} /> : <ExternalLink size={18} />}
+                  {l.label === 'GitHub' || l.label.includes('GitHub') || l.icon === 'github' ? <GithubIcon size={18} /> : <ExternalLink size={18} />}
                   <span>{l.label}</span>
                 </a>
               ))}
